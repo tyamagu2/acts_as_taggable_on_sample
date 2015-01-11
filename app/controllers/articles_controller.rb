@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action  :set_article_tags_to_gon, only: [:edit]
+  before_action :set_available_tags_to_gon, only: [:new, :edit]
+  before_action :set_article_tags_to_gon, only: [:edit]
 
   # GET /articles
   # GET /articles.json
@@ -75,5 +76,9 @@ class ArticlesController < ApplicationController
 
     def set_article_tags_to_gon
       gon.article_tags = @article.tag_list
+    end
+
+    def set_available_tags_to_gon
+      gon.available_tags = Article.tags_on(:tags).pluck(:name)
     end
 end
