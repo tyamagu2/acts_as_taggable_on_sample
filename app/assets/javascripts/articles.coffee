@@ -1,6 +1,6 @@
 $ ->
   $('#article-tags').tagit
-    fieldName:   'article[tag_list]'
+    fieldName:  'article[tag_list]'
     singleField: true
 
   if gon.article_tags?
