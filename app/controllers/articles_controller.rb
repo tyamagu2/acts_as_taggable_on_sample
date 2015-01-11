@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action  :set_article_tags_to_gon, only: [:edit]
 
   # GET /articles
   # GET /articles.json
@@ -70,5 +71,9 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :body, :tag_list)
+    end
+
+    def set_article_tags_to_gon
+      gon.article_tags = @article.tag_list
     end
 end
