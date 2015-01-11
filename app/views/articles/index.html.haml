@@ -3,15 +3,17 @@
 %table
   %thead
     %tr
+      %th Tags
       %th Title
       %th Body
       %th
       %th
       %th
-      
+
   %tbody
     - @articles.each do |article|
       %tr
+        %td= render partial: 'tags', locals: { tags: article.tags }
         %td= article.title
         %td= article.body
         %td= link_to 'Show', article

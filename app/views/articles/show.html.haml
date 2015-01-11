@@ -3,6 +3,7 @@
 %p
   %b Title:
   = @article.title
+= render partial: 'tags', locals: { tags: @article.tags }
 %p
   %b Body:
   = @article.body
