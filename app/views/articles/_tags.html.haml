@@ -1,2 +1,2 @@
 - tags.each do |tag|
-  = "#{tag.name} (#{tag.taggings_count})"
+  = link_to "#{tag.name} (#{tag.taggings_count})", articles_path(tag: tag.name)
